@@ -47,9 +47,9 @@
 
 ## 캐릭터
 
-| <img src="assets/idle.gif" width="120"> | <img src="assets/horang-idle.gif" width="120"> |
-|:---:|:---:|
-| **보영** — 애프리콧 토이푸들 🐩 | **호랑** — 아기 호랑이 🐯 |
+| <img src="assets/idle.gif" width="120"> | <img src="assets/horang-idle.gif" width="120"> | <img src="assets/rungji-idle.gif" width="120"> |
+|:---:|:---:|:---:|
+| **보영** — 애프리콧 토이푸들 🐩 | **호랑** — 아기 호랑이 🐯 | **룽지** — 시바 🐕 |
 
 새 캐릭터가 계속 추가될 예정이에요.
 
@@ -93,6 +93,6 @@ No agent? It's still alive: it tilts its head when clicked, dangles with jelly p
 
 **Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; no data leaves your machine.
 
-Characters: **Boyo** the apricot toy poodle 🐩 and **Horang** the tiger cub 🐯 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
+Characters: **Boyo** the apricot toy poodle 🐩, **Horang** the tiger cub 🐯, and **Rungji** the shiba 🐕 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
 
 </details>
