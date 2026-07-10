@@ -29,6 +29,7 @@
 |---|---|
 | 생각(추론) 중 | 생각 구름 ☁️ 띄우고 같이 고민 |
 | 도구·코드 실행 중 | 노트북 펴고 타닥타닥 💻 |
+| 서브에이전트 투입 | 펫 옆에 **미니 클론들이 뿅** 나타나 같이 타닥타닥 — 끝나면 한 마리씩 퇴장 👯 |
 | 작업 완료 | 점프! + ✅ "다 했어요!" |
 | 질문·권한 요청 | 멍멍! + 알림 카드 ❓ |
 | 에러 | 시무룩 ⚠️ |
@@ -85,7 +86,7 @@
 <details>
 <summary><b>English</b></summary>
 
-**Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, and GJC** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
+**Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, and GJC** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
 
 No agent? It's still alive: it tilts its head when clicked, dangles with jelly physics when dragged, fetches dropped files, follows your cursor with its eyes, strolls across the screen, and naps when things are quiet.
 
