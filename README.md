@@ -36,6 +36,15 @@
 긴 작업 걸어놓고 커피 타러 가세요. **끝나면 펫이 알려줍니다.**
 여러 세션을 동시에 돌려도 알림 카드가 세션별로 쌓여서 놓치지 않아요.
 
+### 📊 사용량 HUD
+
+Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위젯도 함께 제공됩니다.
+
+- 설치된 에이전트만 표시되며, Codex만 있으면 한 줄, Claude만 있으면 한 줄, 둘 다 있으면 각각 표시됩니다.
+- 위젯은 기본적으로 주 모니터 우하단에 나타나고, 드래그해서 원하는 위치에 놓을 수 있습니다.
+- Codex는 로컬 세션 로그의 `rate_limits`를 읽고, Claude는 Claude Code가 로컬에 저장한 OAuth 토큰으로 공식 사용량 API를 조회합니다.
+- Claude 토큰을 직접 갱신하거나 세션·파일·작업 내용을 전송하지 않습니다.
+
 ### 🐾 에이전트가 없어도 살아있어요
 
 - 클릭하면 갸웃, 더블클릭하면 멍멍, 계속 귀찮게 하면 삐짐
@@ -73,7 +82,8 @@
 
 - 에이전트 감지는 **내 컴퓨터의 세션 로그를 읽기만** 합니다 (수정·전송 없음)
 - 타이핑 반응은 **기본 꺼짐**(opt-in)이고, 켜도 키 내용은 절대 수집하지 않아요 (타임스탬프만)
-- 원격 서버로 데이터를 보내지 않습니다 — 업데이트 확인이 유일한 네트워크 사용
+- Mongle 자체 서버로 세션·파일·키 입력 내용을 보내지 않습니다. 업데이트 확인과 사용량 HUD의 공식 사용량 조회만 네트워크를 사용합니다.
+- 사용량 HUD가 켜져 있으면 Claude Code가 로컬에 저장한 OAuth 토큰으로 Anthropic 사용량 API를 조회합니다. 토큰을 직접 갱신하지 않으며 세션 내용은 전송하지 않습니다.
 - 모든 연동은 메뉴에서 개별적으로 끌 수 있어요
 
 ## 문의
@@ -87,11 +97,13 @@
 
 **Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, and GJC** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
 
+A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
+
 No agent? It's still alive: it tilts its head when clicked, dangles with jelly physics when dragged, fetches dropped files, follows your cursor with its eyes, strolls across the screen, and naps when things are quiet.
 
 **Install**: grab `Mongle Setup x.x.x.exe` from [Releases](../../releases), one-click install, Windows 10/11. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Auto-updates included.
 
-**Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; no data leaves your machine.
+**Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Update checks and the optional quota request are the only network activity. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
 
 Characters: **Boyo** the apricot poodle 🐩, **Horang** the tiger cub 🐯, and **Rungji** the shiba 🐕 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
 
