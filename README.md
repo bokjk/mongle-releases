@@ -19,6 +19,12 @@
 
 ## 최근 업데이트
 
+### 0.6.3
+
+- **완료 작업 토큰 배지** — 최근 활동의 완료 행에서 `IN`·`OUT`·`CACHE` 토큰을 간결하게 표시하고, 비용이 기록된 OMO·GJC 작업은 `COST`도 보여줍니다.
+- 값이 없는 항목은 숨기고, 긴 숫자는 `136.9K`, `1.37M`처럼 줄여 작은 창에서도 자연스럽게 줄바꿈됩니다. 배지에 마우스를 올리면 정확한 수치를 확인할 수 있습니다.
+- 앱을 다시 실행한 뒤 기존 Codex·GJC·OMO 세션을 이어서 작업해도 프로젝트명이 최근 활동 행에 유지됩니다.
+
 ### 0.6.2
 
 - **GJC 재개 세션 감지 수정** — 예전에 만든 세션을 다시 열어도 현재 로그 활동을 기준으로 정상 감지합니다.
@@ -64,7 +70,7 @@
 긴 작업 걸어놓고 커피 타러 가세요. **끝나면 펫이 알려줍니다.**
 여러 세션을 동시에 돌려도 알림 카드가 세션별로 쌓여서 놓치지 않아요.
 
-트레이의 **최근 활동** 창에서는 여러 프로젝트의 작업 시작·완료·오류, 사용 모델, 실행 시간을 한곳에서 확인할 수 있어요. 오래전에 만든 GJC·OMO 세션을 다시 열어 작업해도 현재 로그 활동을 기준으로 감지합니다.
+트레이의 **최근 활동** 창에서는 여러 프로젝트의 작업 시작·완료·오류, 사용 모델, 실행 시간을 한곳에서 확인할 수 있어요. 완료된 작업은 입력·출력·캐시 토큰과 OMO·GJC 비용을 작은 배지로 함께 보여줍니다. 오래전에 만든 Codex·GJC·OMO 세션을 다시 열어 작업해도 현재 로그 활동을 기준으로 감지하고 프로젝트명을 유지합니다.
 
 ### 📊 사용량 HUD
 
@@ -94,10 +100,11 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-현재 개발 빌드: **0.6.2**
+현재 개발 빌드: **0.6.3**
 
 1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
-2. 실행 — 원클릭 설치, 관리자 권한 불필요
+2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
+3. 설치 파일 실행 — 기존 모든 사용자 설치를 업그레이드한다면 관리자 권한으로 실행
 3. Windows SmartScreen 경고가 뜨면 **"추가 정보" → "실행"** (아직 미서명 베타 빌드예요)
 
 - **지원**: Windows 10 / 11
@@ -129,15 +136,15 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 **Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, GJC, and OMO** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
 
-The **Recent Activity** window groups work across projects and agents with status, model, and duration details. Resumed GJC and OMO sessions are detected by current log activity even when their session files were originally created much earlier.
+The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created.
 
-**Recent updates (0.5.15–0.6.2)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring; a cross-project Recent Activity window with nested subagent tasks, model, prompt, and duration details; clearer signed-in account and usage-HUD status; corrected OMO session discovery; and reliable detection of resumed GJC sessions in multi-project Orca workflows.
+**Recent updates (0.5.15–0.6.3)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring; a cross-project Recent Activity window with nested subagent tasks, model, prompt, duration, token, cache, and cost details; clearer signed-in account and usage-HUD status; corrected OMO session discovery; and reliable project labels for resumed Codex, GJC, and OMO sessions.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
 No agent? It's still alive: it tilts its head when clicked, dangles with jelly physics when dragged, fetches dropped files, follows your cursor with its eyes, strolls across the screen, and naps when things are quiet.
 
-**Install**: grab the latest `Mongle Setup x.x.x.exe` from [Releases](../../releases), one-click install, Windows 10/11. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Auto-updates included.
+**Install**: quit Mongle from the tray, then run the latest `Mongle Setup x.x.x.exe` from [Releases](../../releases) on Windows 10/11. Run it as administrator when upgrading an existing all-users installation. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Auto-updates included.
 
 **Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Update checks and the optional quota request are the only network activity. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
 
