@@ -23,7 +23,7 @@
 
 ### 🤖 AI 코딩 에이전트와 함께 일해요
 
-**Claude Code · Codex · GJC**를 자동으로 감지합니다. 설정할 것 없어요.
+**Claude Code · Codex · GJC · OMO**를 자동으로 감지합니다. 설정할 것 없어요.
 
 | 에이전트 상황 | 펫의 반응 |
 |---|---|
@@ -36,6 +36,8 @@
 
 긴 작업 걸어놓고 커피 타러 가세요. **끝나면 펫이 알려줍니다.**
 여러 세션을 동시에 돌려도 알림 카드가 세션별로 쌓여서 놓치지 않아요.
+
+트레이의 **최근 활동** 창에서는 여러 프로젝트의 작업 시작·완료·오류, 사용 모델, 실행 시간을 한곳에서 확인할 수 있어요. 오래전에 만든 GJC·OMO 세션을 다시 열어 작업해도 현재 로그 활동을 기준으로 감지합니다.
 
 ### 📊 사용량 HUD
 
@@ -64,6 +66,8 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 새 캐릭터가 계속 추가될 예정이에요.
 
 ## 설치
+
+현재 개발 빌드: **0.6.2**
 
 1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
 2. 실행 — 원클릭 설치, 관리자 권한 불필요
@@ -96,13 +100,15 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 <details>
 <summary><b>English</b></summary>
 
-**Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, and GJC** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
+**Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, GJC, and OMO** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
+
+The **Recent Activity** window groups work across projects and agents with status, model, and duration details. Resumed GJC and OMO sessions are detected by current log activity even when their session files were originally created much earlier.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
 No agent? It's still alive: it tilts its head when clicked, dangles with jelly physics when dragged, fetches dropped files, follows your cursor with its eyes, strolls across the screen, and naps when things are quiet.
 
-**Install**: grab `Mongle Setup x.x.x.exe` from [Releases](../../releases), one-click install, Windows 10/11. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Auto-updates included.
+**Install**: grab the latest `Mongle Setup x.x.x.exe` from [Releases](../../releases), one-click install, Windows 10/11. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Auto-updates included.
 
 **Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Update checks and the optional quota request are the only network activity. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
 
