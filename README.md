@@ -86,11 +86,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 캐릭터
 
-| <img src="assets/idle.gif" width="120"> | <img src="assets/horang-idle.gif" width="120"> | <img src="assets/rungji-idle.gif" width="120"> | <img src="assets/choco-idle.gif" width="120"> |
-|:---:|:---:|:---:|:---:|
-| **보영** — 애프리콧 푸들 🐩 | **호랑** — 아기 호랑이 🐯 | **룽지** — 시바 🐕 | **초코** — 블랙 앤 탄 시바 🐕 |
-
-**깍지** — 블랙 앤 크림 말티푸 🐩
+| <img src="assets/idle.gif" width="120"> | <img src="assets/horang-idle.gif" width="120"> | <img src="assets/rungji-idle.gif" width="120"> | <img src="assets/choco-idle.gif" width="120"> | <img src="assets/kkakji-idle.gif" width="120"> |
+|:---:|:---:|:---:|:---:|:---:|
+| **보영** — 애프리콧 푸들 🐩 | **호랑** — 아기 호랑이 🐯 | **룽지** — 시바 🐕 | **초코** — 블랙 앤 탄 시바 🐕 | **깍지** — 블랙 앤 크림 말티푸 🐩 |
 
 새 캐릭터가 계속 추가될 예정이에요.
 
