@@ -17,6 +17,33 @@
 
 ---
 
+## 최근 업데이트
+
+### 0.6.2
+
+- **GJC 재개 세션 감지 수정** — 예전에 만든 세션을 다시 열어도 현재 로그 활동을 기준으로 정상 감지합니다.
+- Orca에서 여러 프로젝트를 동시에 실행할 때 오래된 GJC 세션을 쓰는 프로젝트만 최근 활동에서 누락되던 문제를 해결했습니다.
+
+### 0.6.1
+
+- **OMO native 감지 복구** — OMO의 현재 세션 경로(`~/.omo/agent/sessions`)와 사용자 지정 설정 경로를 지원합니다.
+
+### 0.6.0
+
+- **최근 활동 창** — 에이전트와 프로젝트별 작업 시작·진행·완료·알림·오류를 한곳에서 확인할 수 있습니다.
+- 서브에이전트를 부모 작업 아래에 묶고, 모델·프롬프트 미리보기·실행 시간을 표시합니다.
+- **사용량 HUD 개선** — 로그인 계정과 에이전트 그룹을 표시하고 Codex · Claude · GJC · OMO 상태를 더 정확하게 구분합니다.
+
+### 0.5.16
+
+- **OMO native 연동** — OMO를 자동 감지하고 생각·도구 실행·완료·모델·서브에이전트 상태에 반응합니다.
+- 트레이 메뉴에서 OMO 연동을 개별적으로 켜거나 끌 수 있습니다.
+
+### 0.5.15
+
+- **깍지 추가** — 블랙 앤 크림 말티푸 캐릭터와 21개 장면을 추가했습니다.
+- 깜박임, 하품, 수면, 작업 인트로·루프 등 깍지 전용 애니메이션 타이밍을 적용했습니다.
+
 ## 이런 앱이에요
 
 투명한 창에 사는 작은 펫이 화면 위를 돌아다닙니다. 클릭은 몸 위에서만 받고, 나머지는 전부 뒤 창으로 통과 — **작업을 전혀 방해하지 않아요.**
@@ -63,6 +90,8 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 |:---:|:---:|:---:|:---:|
 | **보영** — 애프리콧 푸들 🐩 | **호랑** — 아기 호랑이 🐯 | **룽지** — 시바 🐕 | **초코** — 블랙 앤 탄 시바 🐕 |
 
+**깍지** — 블랙 앤 크림 말티푸 🐩
+
 새 캐릭터가 계속 추가될 예정이에요.
 
 ## 설치
@@ -104,6 +133,8 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, and duration details. Resumed GJC and OMO sessions are detected by current log activity even when their session files were originally created much earlier.
 
+**Recent updates (0.5.15–0.6.2)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring; a cross-project Recent Activity window with nested subagent tasks, model, prompt, and duration details; clearer signed-in account and usage-HUD status; corrected OMO session discovery; and reliable detection of resumed GJC sessions in multi-project Orca workflows.
+
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
 No agent? It's still alive: it tilts its head when clicked, dangles with jelly physics when dragged, fetches dropped files, follows your cursor with its eyes, strolls across the screen, and naps when things are quiet.
@@ -112,6 +143,6 @@ No agent? It's still alive: it tilts its head when clicked, dangles with jelly p
 
 **Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Update checks and the optional quota request are the only network activity. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
 
-Characters: **Boyo** the apricot poodle 🐩, **Horang** the tiger cub 🐯, **Rungji** the shiba 🐕, and **Choco** the black-and-tan shiba 🐕 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
+Characters: **Boyo** the apricot poodle 🐩, **Horang** the tiger cub 🐯, **Rungji** the shiba 🐕, **Choco** the black-and-tan shiba 🐕, and **Kkakji** the black-and-cream Maltipoo 🐩 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
 
 </details>
