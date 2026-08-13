@@ -19,6 +19,12 @@
 
 ## 최근 업데이트
 
+### 0.6.5
+
+- **OMO native 서브에이전트 감지 수정** — 최신 OMO에서 실행되는 서브에이전트를 최근 활동의 `└ 서브` 행으로 표시합니다.
+- 작업 ID를 기준으로 시작과 완료를 연결하고, 폴백이 발생하면 완료 행에 실제 사용한 모델을 보여줍니다.
+- 빠르게 끝나거나 오류로 종료된 OMO 서브에이전트의 이력도 최근 활동에 유지됩니다.
+
 ### 0.6.4
 
 - **서브에이전트 모델 표시 수정** — 부모 작업의 모델을 복사하지 않고 각 서브에이전트에서 실제로 사용한 모델을 최근 활동 행에 표시합니다.
@@ -106,7 +112,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-현재 개발 빌드: **0.6.4**
+현재 개발 빌드: **0.6.5**
 
 1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
@@ -144,7 +150,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created.
 
-**Recent updates (0.5.15–0.6.4)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring; a cross-project Recent Activity window with accurate per-subagent model, prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; corrected OMO session discovery; and reliable project labels for resumed Codex, GJC, and OMO sessions.
+**Recent updates (0.5.15–0.6.5)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; corrected session discovery; and reliable project labels for resumed Codex, GJC, and OMO sessions.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
