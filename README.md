@@ -19,6 +19,11 @@
 
 ## 최근 업데이트
 
+### 0.6.8
+
+- **멀티프로젝트 활동 귀속 격리** — 동시에 실행되는 Claude Code · Codex · GJC · OMO 세션의 시작·진행·완료·서브에이전트 행이 각자의 프로젝트명을 유지합니다.
+- 여러 세션이 한 번에 완료돼도 모두 올바른 세션 제목과 프로젝트로 기록하며, 프로젝트를 확정할 수 없는 상태에는 다른 프로젝트명을 추측해 표시하지 않습니다.
+
 ### 0.6.7
 
 - **기존 OMO 세션 제목 복구** — 저장된 네이티브 제목을 찾아 첫 프롬프트 임시 제목보다 우선 표시합니다.
@@ -92,7 +97,7 @@
 긴 작업 걸어놓고 커피 타러 가세요. **끝나면 펫이 알려줍니다.**
 여러 세션을 동시에 돌려도 알림 카드가 세션별로 쌓여서 놓치지 않아요.
 
-트레이의 **최근 활동** 창에서는 여러 프로젝트의 작업 시작·완료·오류, 사용 모델, 실행 시간을 한곳에서 확인할 수 있어요. 완료된 작업은 입력·출력·캐시 토큰과 OMO·GJC 비용을 작은 배지로 함께 보여줍니다. 오래전에 만든 Codex·GJC·OMO 세션을 다시 열어 작업해도 현재 로그 활동을 기준으로 감지하고 프로젝트명을 유지합니다.
+트레이의 **최근 활동** 창에서는 여러 프로젝트의 작업 시작·완료·오류, 사용 모델, 실행 시간을 한곳에서 확인할 수 있어요. 완료된 작업은 입력·출력·캐시 토큰과 OMO·GJC 비용을 작은 배지로 함께 보여줍니다. 오래전에 만든 Codex·GJC·OMO 세션을 다시 열어 작업해도 현재 로그 활동을 기준으로 감지하고 프로젝트명을 유지합니다. 여러 프로젝트를 동시에 실행해도 각 세션의 프로젝트명이 다른 세션과 섞이지 않습니다.
 
 ### 📊 사용량 HUD
 
@@ -122,7 +127,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-현재 개발 빌드: **0.6.5**
+현재 개발 빌드: **0.6.8**
 
 1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
@@ -158,9 +163,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 **Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, GJC, and OMO** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a ✅ bubble when the job is done, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
 
-The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created.
+The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
 
-**Recent updates (0.5.15–0.6.5)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; corrected session discovery; and reliable project labels for resumed Codex, GJC, and OMO sessions.
+**Recent updates (0.5.15–0.6.8)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; corrected session discovery; native session-title recovery; and session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
