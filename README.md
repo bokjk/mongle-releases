@@ -19,6 +19,12 @@
 
 ## 최근 업데이트
 
+### 0.6.14
+
+- **OMO native 팀 미니언 복구** — `team_create`로 실행한 여러 서브에이전트를 즉시 감지해 펫 옆에 꼬마 캐릭터를 만들고, 최근 활동에 이름과 실제 모델이 포함된 `└ 서브` 행을 남깁니다.
+- **놓치지 않는 사용량 초기화 알림** — 5시간·주간 한도가 초기화되면 사용자가 `확인`을 누를 때까지 알림을 유지해, 자리를 비운 사이 발생한 초기화도 나중에 확인할 수 있습니다.
+- provider와 한도 창이 다른 초기화 알림은 각각 독립적으로 유지되며 5개 지원 언어에서 명시적인 확인 버튼을 제공합니다.
+
 ### 0.6.13
 
 - **Plus 5시간·주간 한도 구분** — Codex Plus의 두 사용량 창을 HUD에서 별도 행으로 보여주고, Claude와 함께 표시해도 진행 막대를 같은 열에 맞춥니다.
@@ -159,7 +165,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-현재 개발 빌드: **0.6.13**
+현재 개발 빌드: **0.6.14**
 
 1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
@@ -197,7 +203,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
 
-**Recent updates (0.5.15–0.6.13)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; and a Clear log button that empties the Recent Activity history on demand.
+**Recent updates (0.5.15–0.6.14)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; native `team_create` minions and named Recent Activity rows; persistent usage-reset notices that wait for explicit acknowledgement; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; and a Clear log button that empties the Recent Activity history on demand.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
