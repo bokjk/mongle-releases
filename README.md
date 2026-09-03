@@ -19,6 +19,11 @@
 
 ## 최근 업데이트
 
+### 0.6.18
+
+- **서브에이전트 세션 귀속 수정** — Codex guardian·review 서브에이전트를 실제 부모 Codex 세션 아래에 묶고, 세션을 확인할 수 없는 행은 직전의 다른 에이전트 세션에 섞지 않고 `세션 미상`으로 분리합니다.
+- **모델 추론 레벨 표시** — 최근 활동의 모델 태그에 `gpt-5.6-sol · high`처럼 Codex·Claude Code·GJC·OMO의 reasoning/thinking 레벨을 함께 표시합니다. 여러 동시 세션의 레벨은 서로 섞이지 않습니다.
+
 ### 0.6.17
 
 - **미사용 한도 리셋 오탐 수정** — 쓰지 않은(0%) 모델별 한도(예: Codex Spark)가 한참 지난 경계 시각으로 "리셋" 알림을 띄우던 문제를 고쳤습니다. 실제로 소비한 한도의 갱신 알림은 그대로 동작합니다.
@@ -179,7 +184,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-현재 개발 빌드: **0.6.17**
+현재 개발 빌드: **0.6.18**
 
 1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
@@ -217,7 +222,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
 
-**Recent updates (0.5.15–0.6.17)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; native `team_create` minions and named Recent Activity rows; persistent usage-reset notices that wait for explicit acknowledgement; usage-reset alerts that land within minutes of the boundary instead of the next 10-minute poll; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; a Clear log button that empties the Recent Activity history on demand; restored per-session activity-log model tags for OpenRouter-routed models; suppressed false usage-reset alerts from idle model-scoped quotas such as Codex Spark; and notification cards that accept the very first click when they appear under the cursor.
+**Recent updates (0.5.15–0.6.18)**: Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; native `team_create` minions and named Recent Activity rows; persistent usage-reset notices that wait for explicit acknowledgement; usage-reset alerts that land within minutes of the boundary instead of the next 10-minute poll; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; a Clear log button that empties the Recent Activity history on demand; restored per-session activity-log model tags for OpenRouter-routed models; suppressed false usage-reset alerts from idle model-scoped quotas such as Codex Spark; notification cards that accept the very first click when they appear under the cursor; correctly parented Codex guardian/review subagent rows with isolated unknown-session activity; and model tags that include per-session reasoning/thinking levels such as `high` and `xhigh`.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
