@@ -17,7 +17,30 @@
 
 ---
 
+## PC 상태 카드와 표시 설정
+
+![PC 상태 카드 예시](assets/pc-status.png)
+
+*그래프와 수치는 테스트 데이터로 만든 화면 예시입니다.*
+
+- **켜고 끄기**: 설정 창 또는 트레이 메뉴의 `캐릭터 표시`, `PC 상태 카드`를 각각 선택합니다. 카드의 ×를 누르면 카드만 꺼지고, 트레이에서 다시 켤 수 있습니다.
+- **크기**: `PC 카드 크기`에서 작게(기본)·보통·크게를 고릅니다. 캐릭터 크기와 별도로 적용됩니다.
+- **이동·상세 수치**: 카드 전체를 잡아 옮기고, 메모리 링에 마우스를 올리면 사용 중인 용량과 전체 RAM을 확인합니다.
+- **기록과 정리**: 그래프는 최근 CPU 측정값 최대 21개만 메모리에 보관합니다. 카드 종료 시 버리며, 임시 파일 삭제나 메모리 정리 기능은 포함하지 않습니다.
+
+OpenCodex 다중 계정은 사용량 창에서 각각 구분됩니다. 계정 정보 표시를 끄면 이메일 대신 계정 번호가 보이고, 갱신되지 않은 한도는 `갱신 대기`로 표시합니다. 활동 로그에서는 같은 작업의 서브에이전트를 한곳에 모아 볼 수 있으며, 세션 표시를 끄면 시간순으로 돌아옵니다.
+
 ## 최근 업데이트
+
+### 0.8.1
+
+- **PC 상태 카드** — 전체 메모리는 민트색 링, CPU는 최근 1분 그래프로 표시합니다. 3초마다 갱신하며 카드를 끄면 수집을 중단합니다.
+- **카드 이동·크기 조절** — 닫기 버튼을 제외한 카드 전체에서 드래그할 수 있습니다. 작게·보통·크게 중 기본값은 **작게**이며 위치와 선택한 크기를 저장합니다.
+- **독립적인 표시 설정** — 캐릭터와 PC 카드를 각각 켜고 끌 수 있습니다. 모두 꺼도 트레이에서 다시 켤 수 있고, 캐릭터 없이도 사용량과 활동 로그를 볼 수 있습니다.
+- **OpenCodex 다중 계정** — 계정별 사용량과 현재 선택 계정을 표시하고, 리셋 알림도 계정별로 구분합니다. 계정 전환·오래된 캐시로 인한 리셋 오인을 막으며 Spark 한도 행은 숨깁니다.
+- **활동 로그·안정성 개선** — Codex 하위 에이전트와 guardian을 최상위 작업 아래 한 묶음으로 유지하고 데스크톱 앱의 실제 세션 이름을 표시합니다. 출력 파이프가 닫힐 때 발생하던 EPIPE 오류도 처리했습니다.
+
+
 
 ### 0.6.20
 
@@ -194,9 +217,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-현재 개발 빌드: **0.6.20**
+최신 버전: **0.8.1**
 
-1. [Releases](../../releases)에서 최신 `Mongle Setup x.x.x.exe` 다운로드
+1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.1.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
 3. 설치 파일 실행 — 기존 모든 사용자 설치를 업그레이드한다면 관리자 권한으로 실행
 4. Windows SmartScreen 경고가 뜨면 **"추가 정보" → "실행"** (아직 미서명 베타 빌드예요)
@@ -205,7 +228,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 - **업데이트**: 새 버전을 백그라운드로 받은 뒤 펫 카드나 트레이에서 `설치 후 재시작` 선택
 - **삭제**: 프로그램 추가/제거에서 제거 (설정은 보존)
 
-> 🚧 현재 **비공개 베타** 중입니다 — 릴리스가 보이지 않으면 아직 초대 배포 단계예요.
+> Windows 베타 빌드입니다. 설치 파일과 변경 내역은 공개 릴리스에서 확인할 수 있습니다.
 
 ## 언어
 
@@ -232,7 +255,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. OMO/Senpi background bash and monitor jobs appear as privacy-safe nested rows with a live count, independent from foreground completion and pet/minion reactions. Commands, output, and local paths are never shown. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
 
-**Recent updates (0.5.15–0.6.20)**: Windows notification cards remain clickable after the pointer enters them while preserving click-through gaps and margins; resumed OMO/Senpi sessions restore both their model and reasoning/thinking level; privacy-safe background bash and monitor rows with independent live state; Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; native `team_create` minions and named Recent Activity rows; persistent usage-reset notices that wait for explicit acknowledgement; usage-reset alerts that land within minutes of the boundary instead of the next 10-minute poll; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; a Clear log button that empties the Recent Activity history on demand; restored per-session activity-log model tags for OpenRouter-routed models; suppressed false usage-reset alerts from idle model-scoped quotas such as Codex Spark; notification cards that accept the very first click when they appear under the cursor; correctly parented Codex guardian/review subagent rows with isolated unknown-session activity; and model tags that include per-session reasoning/thinking levels such as `medium`, `high`, and `xhigh`.
+**New in 0.8.1**: A whole-PC memory ring and one-minute CPU graph, with full-card dragging and Small (default), Medium, or Large sizes. The PC card and character can be toggled independently from Settings or the tray; preferences persist, and turning the card off stops sampling. OpenCodex quotas and reset alerts are separated per account. Nested Codex agents stay under their root task, and desktop session names appear in Recent Activity. No memory cleaner or temporary-file deletion is included.
+
+**Earlier updates (0.5.15–0.6.20)**: Windows notification cards remain clickable after the pointer enters them while preserving click-through gaps and margins; resumed OMO/Senpi sessions restore both their model and reasoning/thinking level; privacy-safe background bash and monitor rows with independent live state; Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; native `team_create` minions and named Recent Activity rows; persistent usage-reset notices that wait for explicit acknowledgement; usage-reset alerts that land within minutes of the boundary instead of the next 10-minute poll; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; a Clear log button that empties the Recent Activity history on demand; restored per-session activity-log model tags for OpenRouter-routed models; suppressed false usage-reset alerts from idle model-scoped quotas such as Codex Spark; notification cards that accept the very first click when they appear under the cursor; correctly parented Codex guardian/review subagent rows with isolated unknown-session activity; and model tags that include per-session reasoning/thinking levels such as `medium`, `high`, and `xhigh`.
 
 A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
 
