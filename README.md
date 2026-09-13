@@ -32,6 +32,13 @@ OpenCodex 다중 계정은 사용량 창에서 각각 구분됩니다. 계정 �
 
 ## 최근 업데이트
 
+### 0.8.2
+
+- **Rust 네이티브 교체판** — 기존 Electron 자동 업데이트 채널을 그대로 사용해 `Mongle.exe`, `%APPDATA%/mongle`, 제품 GUID와 시작 메뉴 항목을 유지하면서 Rust/Win32 앱으로 전환합니다.
+- **가벼운 설치 파일** — Electron/Chromium 런타임을 동봉하지 않는 Rust 패키지로 교체했습니다. 기존 설정과 앱 데이터는 보존하고 남은 Electron 파일은 설치 중 정리합니다.
+- **업데이트 흐름 유지** — 업데이트는 계속 백그라운드로 내려받고, 카드나 트레이에서 `설치 후 재시작`을 선택할 때만 조용히 설치한 뒤 Mongle을 다시 실행합니다.
+- **네이티브 UI 정리** — 설정/활동/사용량/PC 상태 창을 Win32 네이티브 화면으로 옮기고, 우클릭 메뉴의 하위 메뉴 화살표 여백과 선택 색을 다듬었습니다.
+
 ### 0.8.1
 
 - **PC 상태 카드** — 전체 메모리는 민트색 링, CPU는 최근 1분 그래프로 표시합니다. 3초마다 갱신하며 카드를 끄면 수집을 중단합니다.
@@ -217,9 +224,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-최신 버전: **0.8.1**
+최신 버전: **0.8.2**
 
-1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.1.exe` 다운로드
+1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.2.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
 3. 설치 파일 실행 — 기존 모든 사용자 설치를 업그레이드한다면 관리자 권한으로 실행
 4. Windows SmartScreen 경고가 뜨면 **"추가 정보" → "실행"** (아직 미서명 베타 빌드예요)
@@ -254,6 +261,8 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 **Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, GJC, and OMO** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a warm completion bubble that names the finished project, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. OMO/Senpi background bash and monitor jobs appear as privacy-safe nested rows with a live count, independent from foreground completion and pet/minion reactions. Commands, output, and local paths are never shown. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
+
+**New in 0.8.2**: Mongle now ships as a native Rust/Win32 replacement through the existing Electron update channel. It keeps the same `Mongle.exe`, `%APPDATA%/mongle` data profile, product GUID, Start Menu entries, and explicit Install and restart update flow, while replacing the bundled Electron/Chromium runtime with a smaller native package. The native settings, activity, usage, and PC-status windows are included, and the tray/context menu spacing was cleaned up.
 
 **New in 0.8.1**: A whole-PC memory ring and one-minute CPU graph, with full-card dragging and Small (default), Medium, or Large sizes. The PC card and character can be toggled independently from Settings or the tray; preferences persist, and turning the card off stops sampling. OpenCodex quotas and reset alerts are separated per account. Nested Codex agents stay under their root task, and desktop session names appear in Recent Activity. No memory cleaner or temporary-file deletion is included.
 
