@@ -26,11 +26,19 @@
 - **켜고 끄기**: 설정 창 또는 트레이 메뉴의 `캐릭터 표시`, `PC 상태 카드`를 각각 선택합니다. 카드의 ×를 누르면 카드만 꺼지고, 트레이에서 다시 켤 수 있습니다.
 - **크기**: `PC 카드 크기`에서 작게(기본)·보통·크게를 고릅니다. 캐릭터 크기와 별도로 적용됩니다.
 - **이동·상세 수치**: 카드 전체를 잡아 옮기고, 메모리 링에 마우스를 올리면 사용 중인 용량과 전체 RAM을 확인합니다.
+- **PC Manager 부스트·설치 안내**: Microsoft PC Manager(Store판)가 설치돼 있으면 카드 하단의 부스트 버튼으로 실행 중인 PC Manager의 기존 버튼을 창을 열지 않고 호출합니다. 미설치 상태에서는 **PC Manager 설치** 버튼이 공식 Microsoft Store 페이지를 엽니다. 설치 후 한 번 실행해 주세요. ‘내 PC’ 카드가 켜져 있으면 30초 간격으로 설치 여부를 확인해 버튼을 자동 전환합니다. 설치 확인 실패 시 다시 확인할 수 있습니다. PC Manager가 꺼져 있거나 홈 화면의 버튼을 찾지 못하면 안내만 표시합니다. 몽글이 직접 파일을 삭제하거나 메모리를 정리하지 않습니다.
 - **기록과 정리**: 그래프는 최근 CPU 측정값 최대 21개만 메모리에 보관합니다. 카드 종료 시 버리며, 임시 파일 삭제나 메모리 정리 기능은 포함하지 않습니다.
 
 OpenCodex 다중 계정은 사용량 창에서 각각 구분됩니다. 계정 정보 표시를 끄면 이메일 대신 계정 번호가 보이고, 갱신되지 않은 한도는 `갱신 대기`로 표시합니다. 활동 로그에서는 같은 작업의 서브에이전트를 한곳에 모아 볼 수 있으며, 세션 표시를 끄면 시간순으로 돌아옵니다.
 
 ## 최근 업데이트
+
+### 0.8.5
+
+- **내 PC에서 PC Manager 부스트** — Microsoft PC Manager(Store판)가 설치돼 있고 백그라운드에서 실행 중이면 카드 하단의 **PC Manager 부스트**로 기존 부스트를 요청합니다. PC Manager 창을 열거나 포커스를 가져오지 않으며 몽글이 직접 정리 기능을 실행하지 않습니다.
+- **미설치 안내** — **PC Manager 설치** 버튼으로 공식 Microsoft Store 페이지를 엽니다. 설치 후 PC Manager를 한 번 실행해 주세요. ‘내 PC’ 카드가 켜져 있으면 30초 간격으로 설치 상태를 확인해 부스트 버튼으로 바뀝니다.
+- **상태별 안내** — 설치 확인 실패 시 다시 확인할 수 있고, PC Manager가 꺼져 있거나 홈 화면의 부스트 버튼을 찾지 못하면 사유를 알립니다. 중복 요청을 막으며 응답 시간 초과 시 자동 재시도하지 않습니다.
+- **알림 본문 표시** — 설치 방법과 부스트 요청 결과를 알림 카드에 표시합니다. PC Manager 3.22.4.0에서 검증했으며, 다른 버전이나 화면 상태에 따라 부스트를 사용할 수 없을 수 있습니다. 0.8.4의 자동 다운로드·설치 후 재시작 흐름을 유지합니다.
 
 ### 0.8.4
 
@@ -236,9 +244,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-최신 버전: **0.8.2**
+최신 버전: **0.8.5**
 
-1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.2.exe` 다운로드
+1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.5.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
 3. 설치 파일 실행 — 기존 모든 사용자 설치를 업그레이드한다면 관리자 권한으로 실행
 4. Windows SmartScreen 경고가 뜨면 **"추가 정보" → "실행"** (아직 미서명 베타 빌드예요)
@@ -257,7 +265,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 - 에이전트 감지는 **내 컴퓨터의 세션 로그를 읽기만** 합니다 (수정·전송 없음)
 - 타이핑 반응은 **기본 꺼짐**(opt-in)이고, 켜도 키 내용은 절대 수집하지 않아요 (타임스탬프만)
-- Mongle 자체 서버로 세션·파일·키 입력 내용을 보내지 않습니다. 업데이트 확인과 사용량 HUD의 공식 사용량 조회만 네트워크를 사용합니다.
+- Mongle 자체 서버로 세션·파일·키 입력 내용을 보내지 않습니다. 업데이트 확인·다운로드와 사용량 HUD의 공식 사용량 조회에 네트워크를 사용합니다. PC Manager 설치 버튼은 브라우저로 공식 Microsoft Store 페이지를 엽니다.
 - 사용량 HUD가 켜져 있으면 Claude Code가 로컬에 저장한 OAuth 토큰으로 Anthropic 사용량 API를 조회합니다. 토큰을 직접 갱신하지 않으며 세션 내용은 전송하지 않습니다.
 - 모든 연동은 메뉴에서 개별적으로 끌 수 있어요
 
@@ -274,6 +282,8 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. OMO/Senpi background bash and monitor jobs appear as privacy-safe nested rows with a live count, independent from foreground completion and pet/minion reactions. Commands, output, and local paths are never shown. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
 
+**New in 0.8.5**: The My PC card can invoke Boost in an already running Microsoft PC Manager (Store edition) without opening its window. If PC Manager is missing, Install PC Manager opens the official Microsoft Store listing. Install it and run it once; the card checks installation every 30 seconds while enabled. Detection failures offer a retry, and unavailable Boost controls show an explanation. Mongle never implements cleanup itself. Verified with PC Manager 3.22.4.0; support may vary by version or screen state. Automatic update downloads and Install and restart from 0.8.4 are retained.
+
 **New in 0.8.2**: Mongle now ships as a native Rust/Win32 replacement through the existing Electron update channel. It keeps the same `Mongle.exe`, `%APPDATA%/mongle` data profile, product GUID, Start Menu entries, and explicit Install and restart update flow, while replacing the bundled Electron/Chromium runtime with a smaller native package. The native settings, activity, usage, and PC-status windows are included, and the tray/context menu spacing was cleaned up.
 
 **New in 0.8.1**: A whole-PC memory ring and one-minute CPU graph, with full-card dragging and Small (default), Medium, or Large sizes. The PC card and character can be toggled independently from Settings or the tray; preferences persist, and turning the card off stops sampling. OpenCodex quotas and reset alerts are separated per account. Nested Codex agents stay under their root task, and desktop session names appear in Recent Activity. No memory cleaner or temporary-file deletion is included.
@@ -286,7 +296,7 @@ No agent? It's still alive: it tilts its head when clicked, dangles with jelly p
 
 **Install**: quit Mongle from the tray, then run the latest `Mongle Setup x.x.x.exe` from [Releases](../../releases) on Windows 10/11. Run it as administrator when upgrading an existing all-users installation. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Future updates download in the background, then appear beside the pet with explicit Install and restart / Later actions; Later keeps the installer available from the tray, and normal app exits never install silently.
 
-**Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Update checks and the optional quota request are the only network activity. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
+**Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Mongle uses the network for update checks/downloads and optional quota requests. Clicking Install PC Manager opens the official Microsoft Store website in your browser. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
 
 Characters: **Boyo** the apricot poodle 🐩, **Horang** the tiger cub 🐯, **Rungji** the shiba 🐕, **Choco** the black-and-tan shiba 🐕, and **Kkakji** the black-and-cream Maltipoo 🐩 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
 
