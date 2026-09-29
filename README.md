@@ -26,11 +26,18 @@
 - **켜고 끄기**: 설정 창 또는 트레이 메뉴의 `캐릭터 표시`, `PC 상태 카드`를 각각 선택합니다. 카드의 ×를 누르면 카드만 꺼지고, 트레이에서 다시 켤 수 있습니다.
 - **크기·이동**: `PC 카드 크기`에서 작게(기본)·보통·크게를 고릅니다. 캐릭터 크기와 별도로 적용되며 카드 전체를 잡아 옮길 수 있습니다. 작은 메모리 링과 임시파일 수치를 나란히, CPU 그래프와 부스트 버튼을 아래에 배치했습니다.
 - **임시파일**: PC Manager의 임시파일 용량을 30초마다 확인합니다. 확인할 수 없는 값은 `확인 불가`로 표시합니다. 부스트 후 이전 값을 비우고 다시 확인합니다.
-- **창 없이 부스트 (실험)**: 트레이 또는 캐릭터 우클릭 → **고급 → PC Manager 백그라운드 연동 (실험)**을 한 번 켜면, 지원 버전에서 홈 창을 직접 열지 않고 임시파일 조회와 메모리·임시파일 정리를 요청합니다. PC Manager 창이 열려 있다면 X로 숨긴 뒤 켜 주세요. 현재 **Microsoft PC Manager Store판 3.22.4.0**만 지원하며, 다른 버전에서는 내부 연결을 중단합니다. PC Manager가 완전히 종료되면 다음 조회 때 백그라운드로 재연결합니다.
+- **창 없이 부스트 (실험)**: 트레이 또는 캐릭터 우클릭 → **고급 → PC Manager 백그라운드 연동 (실험)**을 한 번 켜면, 지원 버전에서 홈 창을 직접 열지 않고 임시파일 조회와 메모리·임시파일 정리를 요청합니다. PC Manager 창이 열려 있다면 X로 숨긴 뒤 켜 주세요. 현재 **Microsoft PC Manager Store판 3.22.4.0·3.22.6.0**을 지원하며, 다른 버전에서는 내부 연결을 중단합니다. PC Manager가 완전히 종료되면 다음 조회 때 백그라운드로 재연결합니다.
 - **연결 방식·해제**: 실험 옵션의 기본값은 꺼짐입니다. 켜면 PC Manager를 백그라운드로 재시작해 **인증 없는 로컬 진단 포트**를 사용하므로 다른 로컬 프로세스도 접근할 수 있습니다. 옵션을 끄면 기록된 PC Manager 연결을 종료하고 일반 실행으로 복원합니다. 몽글 종료만으로는 진단 연결이 닫히지 않습니다. PC Manager 초기 설정은 먼저 완료해야 합니다. 기본 모드는 기존 홈 화면 부스트 버튼을 사용하며, 준비되지 않으면 **PC Manager 열기**를 안내합니다. 미설치 시 공식 Microsoft Store 설치 페이지를 엽니다. 정리는 PC Manager가 수행하며 몽글이 직접 파일을 삭제하지 않습니다.
 - **기록과 정리**: 그래프는 최근 CPU 측정값 최대 21개만 메모리에 보관합니다. 카드 종료 시 버리며, 임시 파일 삭제나 메모리 정리 기능은 포함하지 않습니다.
 
 ## 최근 업데이트
+
+### 0.8.11
+
+- **PC Manager 업데이트 후 연결 복구** — Windows에서 Store판이 3.22.6.0으로 업데이트되면 백그라운드 연동이 끊기던 문제를 수정했습니다. 지원 버전은 **3.22.4.0·3.22.6.0**이며, 그 외 버전에서는 내부 연결을 중단합니다.
+- **설치 버전 확인 통일** — 연결 준비와 임시파일 조회·부스트가 같은 기준으로 공식 PC Manager 패키지와 지원 버전을 확인합니다.
+- **연결 해제 개선** — 업데이트로 이전 PC Manager 프로세스가 사라졌다면 제거된 구버전 패키지를 찾지 않고 백그라운드 연동 옵션을 끌 수 있습니다. 다른 프로세스는 변경하지 않습니다.
+- **검증 범위** — 3.22.6.0에서 실제 연결과 임시파일 용량 조회를 확인했습니다. 이번 호환성 수정에서는 실제 메모리·임시파일 정리를 다시 실행하지 않았습니다.
 
 ### 0.8.8
 
@@ -263,9 +270,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-최신 버전: **0.8.5**
+최신 버전: **0.8.11**
 
-1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.8.exe` 다운로드
+1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.11.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
 3. 설치 파일 실행 — 기존 모든 사용자 설치를 업그레이드한다면 관리자 권한으로 실행
 4. Windows SmartScreen 경고가 뜨면 **"추가 정보" → "실행"** (아직 미서명 베타 빌드예요)
@@ -300,6 +307,8 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 **Mongle** is a squishy desktop pet that lives on your screen and reacts to your AI coding agents — **Claude Code, Codex, GJC, and OMO** are detected automatically with zero setup. It thinks along while the agent reasons, types along while tools run, and jumps with a warm completion bubble that names the finished project, so you can walk away from long tasks. When your agent spawns subagents, tiny clones pop up beside the pet and type along, each one leaving as its subagent finishes. Notification cards stack per session, so nothing gets lost when you run agents in parallel.
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. OMO/Senpi background bash and monitor jobs appear as privacy-safe nested rows with a live count, independent from foreground completion and pet/minion reactions. Commands, output, and local paths are never shown. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
+
+**New in 0.8.11**: Restores the Windows background connection after Microsoft PC Manager updates to 3.22.6.0. The experimental connector supports exactly 3.22.4.0 and 3.22.6.0 and validates the official package identity and install path. An expired session can be disconnected without requiring the removed package. Live connection and temporary-file scanning were verified on 3.22.6.0; cleanup was not repeated during this compatibility fix.
 
 **New in 0.8.5**: The My PC card can invoke Boost in an already running Microsoft PC Manager (Store edition) without opening its window. If PC Manager is missing, Install PC Manager opens the official Microsoft Store listing. Install it and run it once; the card checks installation every 30 seconds while enabled. Detection failures offer a retry, and unavailable Boost controls show an explanation. Mongle never implements cleanup itself. Verified with PC Manager 3.22.4.0; support may vary by version or screen state. Automatic update downloads and Install and restart from 0.8.4 are retained.
 
