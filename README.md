@@ -32,6 +32,14 @@
 
 ## 최근 업데이트
 
+### 0.8.12
+
+- **테마 변경 반응성 개선** — 캐릭터 이미지를 백그라운드에서 준비해 화면 조작이 멈추는 시간을 줄였습니다. 빠른 연속 선택, 미리보기 중지와 위치 초기화가 실제 캐릭터에 일관되게 적용됩니다.
+- **활동 창 조작 개선** — 메뉴 안의 방향키·페이지 이동과 키보드 포커스를 개선했습니다. 새 기록이 들어와도 선택 위치를 유지하고, 좁은 화면의 버튼·스크롤 판정을 바로잡았습니다.
+- **오래 열린 세션 추적 복구** — 며칠 동안 열려 있거나 조용했던 세션의 새 활동, 교체된 로그 파일과 많은 백그라운드 작업을 계속 추적합니다. 과거 기록을 새 작업으로 재생하지 않으면서 로그 처리 비용을 줄였습니다.
+- **계정별 사용량 정확성 개선** — 오래된 수치와 갱신 대기를 구분하고, 계정 전환 중 늦게 도착한 응답이나 계정을 확인할 수 없는 사용량이 다른 계정에 붙지 않도록 했습니다.
+- **실행·설정 안정성 개선** — 빠른 설정 변경 유실, 자동 시작 설정 실패, 시스템 시계 변경 후 갱신 정지와 느린 훅 통신의 대기를 수정했습니다.
+
 ### 0.8.11
 
 - **PC Manager 업데이트 후 연결 복구** — Windows에서 Store판이 3.22.6.0으로 업데이트되면 백그라운드 연동이 끊기던 문제를 수정했습니다. 지원 버전은 **3.22.4.0·3.22.6.0**이며, 그 외 버전에서는 내부 연결을 중단합니다.
@@ -248,7 +256,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 - 설치된 에이전트만 표시되며, Codex만 있으면 한 줄, Claude만 있으면 한 줄, 둘 다 있으면 각각 표시됩니다.
 - Codex Plus의 5시간·주간 한도를 별도 행으로 표시하고, 정상 갱신과 조기 리셋 시각을 알림 카드와 최근 활동에 남깁니다.
 - 위젯은 기본적으로 주 모니터 우하단에 나타나고, 드래그해서 원하는 위치에 놓을 수 있습니다.
-- Codex는 로컬 세션 로그의 `rate_limits`를 읽고, Claude는 Claude Code가 로컬에 저장한 OAuth 토큰으로 공식 사용량 API를 조회합니다.
+- Codex와 Claude는 로컬 인증정보로 공식 사용량 API를 조회합니다. 계정이 확인된 경우 검증된 API 관측만 해당 계정에 연결하고, 계정을 확인할 수 없는 로그 수치는 일반 표시로만 사용합니다. 계정 전환과 오래된 관측은 새 계정의 잔여량이나 리셋 알림으로 합치지 않습니다.
 - Claude 토큰을 직접 갱신하거나 세션·파일·작업 내용을 전송하지 않습니다.
 
 ### 🐾 에이전트가 없어도 살아있어요
@@ -270,9 +278,9 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 ## 설치
 
-최신 버전: **0.8.11**
+최신 버전: **0.8.12**
 
-1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.11.exe` 다운로드
+1. [최신 릴리스](https://github.com/bokjk/mongle-releases/releases/latest)에서 `Mongle-Setup-0.8.12.exe` 다운로드
 2. 실행 중인 Mongle을 트레이 메뉴에서 완전히 종료
 3. 설치 파일 실행 — 기존 모든 사용자 설치를 업그레이드한다면 관리자 권한으로 실행
 4. Windows SmartScreen 경고가 뜨면 **"추가 정보" → "실행"** (아직 미서명 베타 빌드예요)
@@ -292,7 +300,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 - 에이전트 감지는 **내 컴퓨터의 세션 로그를 읽기만** 합니다 (수정·전송 없음)
 - 타이핑 반응은 **기본 꺼짐**(opt-in)이고, 켜도 키 내용은 절대 수집하지 않아요 (타임스탬프만)
 - Mongle 자체 서버로 세션·파일·키 입력 내용을 보내지 않습니다. 업데이트 확인·다운로드와 사용량 HUD의 공식 사용량 조회에 네트워크를 사용합니다. PC Manager 설치 버튼은 브라우저로 공식 Microsoft Store 페이지를 엽니다.
-- 사용량 HUD가 켜져 있으면 Claude Code가 로컬에 저장한 OAuth 토큰으로 Anthropic 사용량 API를 조회합니다. 토큰을 직접 갱신하지 않으며 세션 내용은 전송하지 않습니다.
+- 사용량 HUD가 켜져 있으면 각 도구의 로컬 인증정보로 OpenAI·Anthropic의 공식 사용량 API를 조회합니다. 토큰을 직접 갱신하지 않으며 세션 내용은 전송하지 않습니다.
 - 모든 연동은 메뉴에서 개별적으로 끌 수 있어요
 
 ## 문의
@@ -308,7 +316,7 @@ Codex와 Claude의 남은 사용량과 리셋 시각을 보여주는 작은 위�
 
 The **Recent Activity** window groups work across projects and agents with status, model, duration, and project details. OMO/Senpi background bash and monitor jobs appear as privacy-safe nested rows with a live count, independent from foreground completion and pet/minion reactions. Commands, output, and local paths are never shown. Completed rows show compact input, output, and cache-token badges; OMO and GJC rows also show cost when available. Resumed Codex, GJC, and OMO sessions keep their project labels even when Mongle starts after the session was created. Concurrent sessions retain their own project context across start, progress, completion, and subagent rows.
 
-**New in 0.8.11**: Restores the Windows background connection after Microsoft PC Manager updates to 3.22.6.0. The experimental connector supports exactly 3.22.4.0 and 3.22.6.0 and validates the official package identity and install path. An expired session can be disconnected without requiring the removed package. Live connection and temporary-file scanning were verified on 3.22.6.0; cleanup was not repeated during this compatibility fix.
+**New in 0.8.12**: Theme loading runs in the background; preview stop, position reset, keyboard focus, menus, and scrolling behave consistently. Long-lived sessions and large background-job histories remain tracked. Quota observations retain their timestamps and verified account identities, preventing stale or anonymous data from being attached to a different account. Hook deadlines and settings updates are more robust.
 
 **New in 0.8.5**: The My PC card can invoke Boost in an already running Microsoft PC Manager (Store edition) without opening its window. If PC Manager is missing, Install PC Manager opens the official Microsoft Store listing. Install it and run it once; the card checks installation every 30 seconds while enabled. Detection failures offer a retry, and unavailable Boost controls show an explanation. Mongle never implements cleanup itself. Verified with PC Manager 3.22.4.0; support may vary by version or screen state. Automatic update downloads and Install and restart from 0.8.4 are retained.
 
@@ -318,13 +326,13 @@ The **Recent Activity** window groups work across projects and agents with statu
 
 **Earlier updates (0.5.15–0.6.20)**: Windows notification cards remain clickable after the pointer enters them while preserving click-through gaps and margins; resumed OMO/Senpi sessions restore both their model and reasoning/thinking level; privacy-safe background bash and monitor rows with independent live state; Kkakji, a black-and-cream Maltipoo with 21 animated scenes; native OMO session monitoring with live subagent rows and actual fallback models; native `team_create` minions and named Recent Activity rows; persistent usage-reset notices that wait for explicit acknowledgement; usage-reset alerts that land within minutes of the boundary instead of the next 10-minute poll; a cross-project Recent Activity window with prompt, duration, token, cache, and cost details; tray-only auxiliary windows; clearer signed-in account and usage-HUD status; separate Codex Plus five-hour and weekly quota rows; normal renewal and early-reset notifications; corrected session discovery; native session-title recovery; session-isolated project labels for concurrent Codex, GJC, OMO, and Claude Code activity; a redesigned completion bubble that identifies the finished project; a persistent update card with explicit Install and restart / Later actions plus a durable tray fallback; a Clear log button that empties the Recent Activity history on demand; restored per-session activity-log model tags for OpenRouter-routed models; suppressed false usage-reset alerts from idle model-scoped quotas such as Codex Spark; notification cards that accept the very first click when they appear under the cursor; correctly parented Codex guardian/review subagent rows with isolated unknown-session activity; and model tags that include per-session reasoning/thinking levels such as `medium`, `high`, and `xhigh`.
 
-A small usage HUD can show the remaining Codex and Claude quota plus reset times. It only shows agents installed on the machine, can be dragged anywhere, reads Codex `rate_limits` from local session logs, and queries Claude's official usage endpoint with the OAuth token Claude Code stores locally. Mongle never refreshes that token or sends session contents.
+A small usage HUD shows remaining Codex and Claude quota and reset times. It queries official provider usage endpoints with locally stored credentials. Known accounts only receive verified API observations; anonymous log data is never relabeled as a newly signed-in account. Old observations are marked with their age. Mongle never refreshes provider tokens or sends session contents.
 
 No agent? It's still alive: it tilts its head when clicked, dangles with jelly physics when dragged, fetches dropped files, follows your cursor with its eyes, strolls across the screen, and naps when things are quiet.
 
 **Install**: quit Mongle from the tray, then run the latest `Mongle Setup x.x.x.exe` from [Releases](../../releases) on Windows 10/11. Run it as administrator when upgrading an existing all-users installation. If SmartScreen warns, choose "More info → Run anyway" (unsigned beta). Future updates download in the background, then appear beside the pet with explicit Install and restart / Later actions; Later keeps the installer available from the tray, and normal app exits never install silently.
 
-**Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Mongle uses the network for update checks/downloads and optional quota requests. Clicking Install PC Manager opens the official Microsoft Store website in your browser. When the usage HUD is enabled, Claude's locally stored OAuth token is used to read quota from Anthropic's official usage endpoint; the token is never refreshed by Mongle.
+**Privacy**: agent detection only *reads* local session logs; the optional typing reaction (off by default) never collects key contents; Mongle does not send session, file, or keystroke contents to its own servers. Mongle uses the network for update checks/downloads and optional quota requests. Clicking Install PC Manager opens the official Microsoft Store website in your browser. When the usage HUD is enabled, locally stored credentials are used to query official OpenAI and Anthropic usage endpoints; provider tokens are never refreshed by Mongle.
 
 Characters: **Boyo** the apricot poodle 🐩, **Horang** the tiger cub 🐯, **Rungji** the shiba 🐕, **Choco** the black-and-tan shiba 🐕, and **Kkakji** the black-and-cream Maltipoo 🐩 — more on the way. Languages: KO · EN · JA · zh-CN · zh-TW.
 
